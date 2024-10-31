@@ -7,6 +7,8 @@ public class Personagem : MonoBehaviour
 
     public Rigidbody2D Corpo;
     public Animator Animador;
+    public GameObject Espada;
+
     void Start()
     {
         Corpo = GetComponent<Rigidbody2D>();
@@ -64,5 +66,16 @@ public class Personagem : MonoBehaviour
         }
     }
 
+    //Ativar e Desativar Espada
+
+    public void AtivaEspada()
+    {
+        Espada.SetActive(true);
+    }
+
+    public void DesativaEspada()
+    {
+        Espada.SetActive(false);
+    }
 
 }
