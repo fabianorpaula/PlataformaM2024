@@ -16,6 +16,7 @@ public class Personagem : MonoBehaviour
     void Update()
     {
         Mover();
+        
     }
 
     void Mover()
@@ -39,5 +40,19 @@ public class Personagem : MonoBehaviour
 
         float velY = Corpo.velocity.y;
         Corpo.velocity = new Vector2(velH, velY);
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Pular();
+        }
+
     }
+
+    void Pular()
+    {
+        Corpo.AddForce(Vector3.up * 300);
+    }
+
+
 }
