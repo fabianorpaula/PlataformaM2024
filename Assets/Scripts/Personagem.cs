@@ -16,7 +16,9 @@ public class Personagem : MonoBehaviour
     void Update()
     {
         Mover();
-        
+        Atacar();
+
+
     }
 
     void Mover()
@@ -52,6 +54,14 @@ public class Personagem : MonoBehaviour
     void Pular()
     {
         Corpo.AddForce(Vector3.up * 300);
+    }
+
+    void Atacar()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Animador.SetTrigger("Ataque");
+        }
     }
 
 
