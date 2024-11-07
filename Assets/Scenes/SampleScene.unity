@@ -1582,6 +1582,7 @@ MonoBehaviour:
   Corpo: {fileID: 0}
   Animador: {fileID: 0}
   Espada: {fileID: 171099906}
+  Bala: {fileID: 558235833506197578, guid: 390e74b10aa74c04bb26f80e1bc7a97c, type: 3}
 --- !u!1 &2115742473
 GameObject:
   m_ObjectHideFlags: 0

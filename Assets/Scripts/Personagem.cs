@@ -8,6 +8,7 @@ public class Personagem : MonoBehaviour
     public Rigidbody2D Corpo;
     public Animator Animador;
     public GameObject Espada;
+    public GameObject Bala;
 
     void Start()
     {
@@ -64,6 +65,20 @@ public class Personagem : MonoBehaviour
         {
             Animador.SetTrigger("Ataque");
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Animador.SetTrigger("Disparo");
+            ChamarAtaqueDistancia();
+
+        }
+    }
+
+
+    void ChamarAtaqueDistancia()
+    {
+        GameObject MinhaBala = Instantiate(Bala, transform.position, Quaternion.identity);
+        Destroy(MinhaBala,2f);
+        MinhaBala.GetComponent<Rigidbody2D>().velocity = new Vector2(5, 0);
     }
 
     //Ativar e Desativar Espada
