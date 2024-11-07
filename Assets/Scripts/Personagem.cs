@@ -68,17 +68,35 @@ public class Personagem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Animador.SetTrigger("Disparo");
-            ChamarAtaqueDistancia();
+            
 
         }
     }
 
 
-    void ChamarAtaqueDistancia()
+    public void ChamarAtaqueDistancia()
     {
-        GameObject MinhaBala = Instantiate(Bala, transform.position, Quaternion.identity);
-        Destroy(MinhaBala,2f);
-        MinhaBala.GetComponent<Rigidbody2D>().velocity = new Vector2(5, 0);
+        //DetectarLado
+        //Olhando Pra Frente
+        if(transform.localScale.x == 1)
+        {
+            Vector3 posBala = new Vector3(transform.position.x + 1f, 
+                transform.position.y, transform.position.z);   
+            GameObject MinhaBala = Instantiate(Bala, posBala, Quaternion.identity);
+            Destroy(MinhaBala, 2f);
+            MinhaBala.GetComponent<Rigidbody2D>().velocity = new Vector2(5, 0);
+        }
+        //Olhando Pra Trás
+        if (transform.localScale.x == -1)
+        {
+            Vector3 posBala = new Vector3(transform.position.x - 1f,
+                transform.position.y, transform.position.z);
+            GameObject MinhaBala = Instantiate(Bala, posBala, Quaternion.identity);
+            Destroy(MinhaBala, 2f);
+            MinhaBala.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
+        }
+
+        
     }
 
     //Ativar e Desativar Espada
