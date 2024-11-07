@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Personagem : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Personagem : MonoBehaviour
     public Animator Animador;
     public GameObject Espada;
     public GameObject Bala;
+    public float barraDeVida = 10;
+    public Image ImagemBarraDeVida;
 
     void Start()
     {
@@ -111,4 +114,16 @@ public class Personagem : MonoBehaviour
         Espada.SetActive(false);
     }
 
+    //TomarDano
+    public void TomouDano()
+    {
+        Animador.SetTrigger("Dano");
+    }
+
+    public void PederVida()
+    {
+        barraDeVida--;
+        ImagemBarraDeVida.GetComponent<RectTransform>().sizeDelta = 
+            new Vector2(barraDeVida*50, 50);
+    }
 }

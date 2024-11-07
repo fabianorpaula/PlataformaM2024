@@ -27,6 +27,11 @@ public class Inimigo : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Personagem>().TomouDano();
+        }
     }
 
 
