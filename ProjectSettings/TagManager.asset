@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ataque
   - Bala
+  - Cenas
   layers:
   - Default
   - TransparentFX

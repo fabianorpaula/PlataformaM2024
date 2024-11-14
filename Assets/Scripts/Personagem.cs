@@ -13,6 +13,8 @@ public class Personagem : MonoBehaviour
     public float barraDeVida = 10;
     public Image ImagemBarraDeVida;
 
+    public bool estadoJogo = true;
+
     void Start()
     {
         Corpo = GetComponent<Rigidbody2D>();
@@ -21,8 +23,12 @@ public class Personagem : MonoBehaviour
 
     void Update()
     {
-        Mover();
-        Atacar();
+
+        if (estadoJogo == true)
+        {
+            Mover();
+            Atacar();
+        }
 
 
     }
@@ -125,5 +131,20 @@ public class Personagem : MonoBehaviour
         barraDeVida--;
         ImagemBarraDeVida.GetComponent<RectTransform>().sizeDelta = 
             new Vector2(barraDeVida*50, 50);
+        if(barraDeVida <= 0)
+        {
+            //MORREU // FOI DE VELHO DA BOMBA DO STF
+            
+            estadoJogo = false;
+            Animador.SetBool("Vida", false);
+            Animador.SetTrigger("Morreu");
+            Morte();
+        }
+    }
+
+    void Morte()
+    {
+        GameObject.FindGameObjectWithTag("Cenas").
+            GetComponent<TrocarCena>().IniciarGameOver();
     }
 }
