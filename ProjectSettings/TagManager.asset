@@ -7,6 +7,9 @@ TagManager:
   - Ataque
   - Bala
   - Cenas
+  - Bala1
+  - LimiteEsquerdo
+  - LimiteDireito
   layers:
   - Default
   - TransparentFX
